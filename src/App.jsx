@@ -17,6 +17,7 @@ const styles = {
     marginTop: "80px",
     padding: "10px",
     textAlign: 'center',
+    backgroundImage:'linear-gradient(34deg, #000, #000)',
   },
   header: {
     position: "fixed",
@@ -50,10 +51,10 @@ const App = ({ isServerInfo }) => {
   }, [isAuthenticated, isWeb3Enabled]);
 
   return (
-    <Layout style={{ height: "100vh", overflow: "auto" }}>
+    <Layout style={{ height: "100vh", overflow: "auto", background: "#000" }}>
       <Router>
         <Header style={styles.header}>
-          <div style={{width:"250px"}}>
+          <div>
           <Logo />
           </div>
           <img src={rare} alt="" style={{height:"50px"}}/>
