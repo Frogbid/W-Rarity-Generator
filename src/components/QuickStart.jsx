@@ -141,6 +141,7 @@ function HomePage() {
                                     style={{fontSize: "18px"}}
                                 >
                                     <Image
+                                        className="img-fluid"
                                         preview={false}
                                         src={nft.image}
                                         loading="lazy"
@@ -164,7 +165,6 @@ function HomePage() {
                                         }
                                         fallback={fallbackImg}
                                         alt=""
-                                        style={{height: "640px"}}
                                     />
                                 </Badge.Ribbon>
                             </div>
