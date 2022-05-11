@@ -133,148 +133,135 @@ function HomePage() {
                 </div>
                 <Divider/>
                 {visibility && (
-                    <>
-                        <div
-                            style=
-                                {mediaMatch ? (
-                                    {
-                                        display: "flex",
-                                        justifyContent: "space-evenly",
-                                        marginBottom: "30px",
-                                        width: "100%",
-                                    }
-                                ) : (
-                                    {
-                                        display: "flex",
-                                        justifyContent: "space-evenly",
-                                        marginBottom: "30px",
-                                        width: "100%",
-                                    }
-                                )}
-
-                        >
-                            <Badge.Ribbon
-                                text={`Rank #${nft.rank}`}
-                                style={{fontSize: "18px"}}
-                            >
-                                <Image
-                                    preview={false}
-                                    src={nft.image}
-                                    loading="lazy"
-                                    placeholder={
-                                        <div
-                                            style={{
-                                                backgroundColor: "rgba(0, 0, 0, 0.2)",
-                                                borderRadius: "18px",
-                                            }}
-                                        >
-                                            <Spin
-                                                size="large"
-                                                style={{
-                                                    margin: "auto",
-                                                    padding: "250px 0",
-                                                    width: "640px",
-                                                    height: "640px",
-                                                }}
-                                            />
-                                        </div>
-                                    }
-                                    fallback={fallbackImg}
-                                    alt=""
-                                    style={{height: "640px"}}
-                                />
-                            </Badge.Ribbon>
-                            <Card
-                                title={`${collection} #${nft.tokenId}`}
-                                bordered={false}
-                                style={{width: "350px"}}
-                            >
-                                <div
-                                    style={{
-                                        backgroundColor: "#91d5ff",
-                                        height: "100px",
-                                        borderRadius: "10px",
-                                        marginBottom: "10px",
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        alignItems: "center",
-                                        color: "white",
-                                        fontWeight: "bold",
-                                        fontSize: "24px",
-                                    }}
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-6 col-md-12">
+                                <Badge.Ribbon
+                                    text={`Rank #${nft.rank}`}
+                                    style={{fontSize: "18px"}}
                                 >
-                                    Rarity Score
-                                    <div
-                                        style={{
-                                            backgroundColor: "white",
-                                            borderRadius: "8px",
-                                            width: "98%",
-                                            margin: "auto",
-                                            textAlign: "center",
-                                            fontWeight: "bold",
-                                            fontSize: "20px",
-                                            color: "green",
-                                            marginTop: "2px",
-                                        }}
-                                    >
-                                        {nft.rarity.toFixed(1)}
-                                    </div>
-                                    <div
-                                        style={{
-                                            textAlign: "center",
-                                            fontSize: " 10px",
-                                            fontWeight: "normal",
-                                            paddingBottom: "2px",
-                                        }}
-                                    >
-                                    </div>
-                                </div>
-                                {nft.attributes.map((e) => {
-                                    return (
-                                        <>
+                                    <Image
+                                        preview={false}
+                                        src={nft.image}
+                                        loading="lazy"
+                                        placeholder={
                                             <div
                                                 style={{
-                                                    display: "flex",
-                                                    justifyContent: "space-between",
-                                                    fontWeight: "bold",
+                                                    backgroundColor: "rgba(0, 0, 0, 0.2)",
+                                                    borderRadius: "18px",
                                                 }}
                                             >
-                                                <span style={{color: "gray"}}>{e.trait_type}</span>
-                                                <span
-                                                    style={{color: "green", paddingRight: "4%"}}
-                                                >{`+${e.rarityScore.toFixed(1)}`}</span>
+                                                <Spin
+                                                    size="large"
+                                                    style={{
+                                                        margin: "auto",
+                                                        padding: "250px 0",
+                                                        width: "640px",
+                                                        height: "640px",
+                                                    }}
+                                                />
                                             </div>
-                                            <Alert
-                                                style={{
-                                                    padding: "2px 2px 2px 12px",
-                                                    width: "98%",
-                                                    margin: "0px auto 5px",
-                                                    fontSize: "14px",
-                                                }}
-                                                message={e.value ? e.value : "<null>"}
-                                                type="info"
-                                                action={
-                                                    <Button
-                                                        size="small"
-                                                        style={{
-                                                            display: "flex",
-                                                            justifyContent: "end",
-                                                            width: "60px",
-                                                        }}
-                                                    >
-                                                        {e.trait_type === "TraitCount" ?
-                                                            ((8 * (10000 / e.rarityScore)).toFixed(0)) :  //Only use this if rarity generator adjusted to 8x traitcount
-                                                            ((10000 / e.rarityScore).toFixed(0))         //Also must be adjusted for collections with +- 10000 NFTs
-                                                        }
-                                                    </Button>
-                                                }
-                                            />
-                                        </>
-                                    );
-                                })}
-                            </Card>
+                                        }
+                                        fallback={fallbackImg}
+                                        alt=""
+                                        style={{height: "640px"}}
+                                    />
+                                </Badge.Ribbon>
+                            </div>
+
+                            <div className="col-lg-6 col-md-12">
+                                <Card
+                                    title={`${collection} #${nft.tokenId}`}
+                                    bordered={false}
+                                    style={{width: "100%"}}
+                                >
+                                    <div
+                                        style={{
+                                            backgroundColor: "#91d5ff",
+                                            height: "100px",
+                                            borderRadius: "10px",
+                                            marginBottom: "10px",
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            alignItems: "center",
+                                            color: "white",
+                                            fontWeight: "bold",
+                                            fontSize: "24px",
+                                        }}
+                                    >
+                                        Rarity Score
+                                        <div
+                                            style={{
+                                                backgroundColor: "white",
+                                                borderRadius: "8px",
+                                                width: "98%",
+                                                margin: "auto",
+                                                textAlign: "center",
+                                                fontWeight: "bold",
+                                                fontSize: "20px",
+                                                color: "green",
+                                                marginTop: "2px",
+                                            }}
+                                        >
+                                            {nft.rarity.toFixed(1)}
+                                        </div>
+                                        <div
+                                            style={{
+                                                textAlign: "center",
+                                                fontSize: " 10px",
+                                                fontWeight: "normal",
+                                                paddingBottom: "2px",
+                                            }}
+                                        >
+                                        </div>
+                                    </div>
+                                    {nft.attributes.map((e) => {
+                                        return (
+                                            <>
+                                                <div
+                                                    style={{
+                                                        display: "flex",
+                                                        justifyContent: "space-between",
+                                                        fontWeight: "bold",
+                                                    }}
+                                                >
+                                                    <span style={{color: "gray"}}>{e.trait_type}</span>
+                                                    <span
+                                                        style={{color: "green", paddingRight: "4%"}}
+                                                    >{`+${e.rarityScore.toFixed(1)}`}</span>
+                                                </div>
+                                                <Alert
+                                                    style={{
+                                                        padding: "2px 2px 2px 12px",
+                                                        width: "98%",
+                                                        margin: "0px auto 5px",
+                                                        fontSize: "14px",
+                                                    }}
+                                                    message={e.value ? e.value : "<null>"}
+                                                    type="info"
+                                                    action={
+                                                        <Button
+                                                            size="small"
+                                                            style={{
+                                                                display: "flex",
+                                                                justifyContent: "end",
+                                                                width: "60px",
+                                                            }}
+                                                        >
+                                                            {e.trait_type === "TraitCount" ?
+                                                                ((8 * (10000 / e.rarityScore)).toFixed(0)) :  //Only use this if rarity generator adjusted to 8x traitcount
+                                                                ((10000 / e.rarityScore).toFixed(0))         //Also must be adjusted for collections with +- 10000 NFTs
+                                                            }
+                                                        </Button>
+                                                    }
+                                                />
+                                            </>
+                                        );
+                                    })}
+                                </Card>
+                            </div>
                         </div>
-                    </>
+                    </div>
                 )}
                 <Divider/>
                 <div
